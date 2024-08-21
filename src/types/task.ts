@@ -14,10 +14,10 @@ export interface ITaskData {
 export interface ListTask {
     id?: number,
     index: number,
-    taskName: string,
-    taskDiscipline: Discipline,
-    taskAchievement: AchievementTable,
-    taskDate: string,
+    taskName: string | null,
+    taskDiscipline: Discipline | null,
+    taskAchievement: AchievementTable | null,
+    taskDate: string | null,
 }
 
 export interface Tasks {
