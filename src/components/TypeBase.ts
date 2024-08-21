@@ -1,14 +1,4 @@
-import {DateType, Tasks} from "../types/task";
-
-const TasksBase = (idUser: number): Tasks => {
-    return {
-        id: idUser,
-        taskName: [],
-        taskAchievement: [],
-        taskDiscipline: [],
-        taskDate: [],
-    }
-};
+import {DateType} from "../types/task";
 
 const DateBase = (): DateType => {
     return {
@@ -22,7 +12,6 @@ const DateBase = (): DateType => {
 }
 
 const TypeBase = {
-    TasksBase,
     DateBase
 };
 

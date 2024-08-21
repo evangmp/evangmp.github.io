@@ -1,6 +1,5 @@
-import {AchievementTable, ListTask} from "../types/task";
+import {ListTask} from "../types/task";
 import CookiesConfiguration from "./CookiesConfiguration";
-import task from "../pages/Tasks/Task";
 
 const updateCookie = (listTasks: Array<ListTask>) => {
     for(let i = 0; i < listTasks.length; i++) {

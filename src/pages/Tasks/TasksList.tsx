@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {CSSProperties, useEffect, useState} from "react";
-import {AchievementTable, DateType, ListTask, Tasks} from "../../types/task";
+import {AchievementTable, DateType, ListTask} from "../../types/task";
 import TypeBase from "../../components/TypeBase";
 import ListSort from "../Filters/ListSort";
 import SwitchFilters from "../Filters/SwitchFilters";
@@ -10,7 +10,6 @@ import CSSList from "../../CSS/CSS-list";
 import CSSInput from "../../CSS/CSS-input";
 import CSSButton from "../../CSS/CSS-button";
 import CSSDiv from "../../CSS/CSS-div";
-import CookiesConfiguration from "../../Cookies/CookiesConfiguration";
 import Cookie from "../../Cookies/Cookies";
 
 const TaskList = () => {
