@@ -45,7 +45,9 @@ const Task = () => {
         }
 
         const taskToSend: Array<ListTask> = allTheTasks;
+        // @ts-ignore
         taskToSend[idTask?.toString()].taskName = inputName;
+        // @ts-ignore
         taskToSend[idTask?.toString()].taskDiscipline = selectedDiscipline;
 
         Cookie.updateCookie(taskToSend);

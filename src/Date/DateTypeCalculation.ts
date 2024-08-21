@@ -1,7 +1,7 @@
-import {DateType, ListTask} from "../types/task.ts";
-import DateFunction from "./DateFunctions.ts";
-import DateFunctions from "./DateFunctions.ts";
-import TypeBase from "../components/TypeBase.ts";
+import {DateType, ListTask} from "../types/task";
+import DateFunction from "./DateFunctions";
+import DateFunctions from "./DateFunctions";
+import TypeBase from "../components/TypeBase";
 
 const DateTypeCalculation = (allTheTask: Array<ListTask>) => {
     const DateTable: DateType = TypeBase.DateBase();
@@ -14,9 +14,11 @@ const DateTypeCalculation = (allTheTask: Array<ListTask>) => {
 
     for (let i = 0; i < allTheTask.length; i++) {
         DateTable.taskIndex.push(i);
+        // @ts-ignore
         DateTable.taskAchievement.push(allTheTask[i].taskAchievement);
         DateTable.late.push(false);
 
+        // @ts-ignore
         const dateTask: string[] = DateFunctions.sortDate(allTheTask[i].taskDate);
 
         const dayTask: number = DateFunction.convertDicToNumber(dateTask, 0, 1);
@@ -36,6 +38,7 @@ const DateTypeCalculation = (allTheTask: Array<ListTask>) => {
                 const difference = Math.abs(numberDay - numberDayTask);
                 DateTable.difference.push(difference);
 
+                // @ts-ignore
                 const taskIndexAndState: [boolean, number] = DateFunction.taskAchievementIndex(difference, allTheTask[i].taskAchievement);
 
                 DateTable.defaultChecked.push(taskIndexAndState[0]);
@@ -47,6 +50,7 @@ const DateTypeCalculation = (allTheTask: Array<ListTask>) => {
                 const difference: number = Math.abs(DateFunction.DifferentYearDifference(yearActualDate, dayTask, monthTask, numberDay, yearTask));
                 DateTable.difference.push(difference);
 
+                // @ts-ignore
                 const taskIndexAndState: [boolean, number] = DateFunction.taskAchievementIndex(difference, allTheTask[i].taskAchievement);
 
                 DateTable.defaultChecked.push(taskIndexAndState[0]);
@@ -63,6 +67,7 @@ const DateTypeCalculation = (allTheTask: Array<ListTask>) => {
                 const difference = Math.abs(numberDay - numberDayTask);
                 DateTable.difference.push(difference);
 
+                // @ts-ignore
                 const taskIndexAndState: [boolean, number] = DateFunction.taskAchievementIndex(difference, allTheTask[i].taskAchievement);
 
                 DateTable.defaultChecked.push(taskIndexAndState[0]);
@@ -72,6 +77,7 @@ const DateTypeCalculation = (allTheTask: Array<ListTask>) => {
                 const difference: number = Math.abs(DateFunction.DifferentYearDifference(yearActualDate, dayTask, monthTask, numberDay, yearTask));
                 DateTable.difference.push(difference);
 
+                // @ts-ignore
                 const taskIndexAndState: [boolean, number] = DateFunction.taskAchievementIndex(difference, allTheTask[i].taskAchievement);
 
                 DateTable.defaultChecked.push(taskIndexAndState[0]);

@@ -1,5 +1,5 @@
 // Function to set a cookie
-const setCookie = (name: string, value: string, days: number) => {
+const setCookie = (name: string, value: string | null, days: number) => {
     const expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + days);
 

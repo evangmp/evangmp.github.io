@@ -1,5 +1,5 @@
-import {DateType, ListTask} from "../../types/task.ts";
-import ListSort from "./ListSort.ts";
+import {DateType, ListTask} from "../../types/task";
+import ListSort from "./ListSort";
 
 // take as an argument a list and return only the task(s) that are not checked in the list
 const activeTasks = (listTask: Array<ListTask>, dateTable: DateType) => {

@@ -6,10 +6,12 @@ const updateCookie = (listTasks: Array<ListTask>) => {
         CookiesConfiguration.setCookie("taskName" + i, listTasks[i].taskName, 30);
         CookiesConfiguration.setCookie("taskDiscipline" + i, listTasks[i].taskDiscipline, 30);
         CookiesConfiguration.setCookie("taskDate" + i, listTasks[i].taskDate, 30);
-        for (let m = 0; i < listTasks[i].taskAchievement.length; m++) {
+        let m = 0;
+        while(listTasks[i].taskAchievement != null) {
+            // @ts-ignore
             CookiesConfiguration.setCookie("taskDiscipline" + i + m, listTasks[i].taskAchievement[m].toString(), 30);
+            m++;
         }
-
     }
 };
 
@@ -21,13 +23,17 @@ const getCookie = () => {
         for (let m = 0; m < 11; m++) {
             taskAchievement.push(Number(CookiesConfiguration.getCookie("taskAchievement"+ i + m)));
         }
+        // @ts-ignore
         initializationTasks.push({
             id: 0,
             index: i,
+            // @ts-ignore
             taskName: CookiesConfiguration.getCookie("taskName" + i).toString(),
+            // @ts-ignore
             taskDiscipline: CookiesConfiguration.getCookie("taskDiscipline" + i),
-            taskAchievement: CookiesConfiguration.getCookie("taskAchievement" + i),
-            taskDate: taskAchievement,
+            // @ts-ignore
+            taskAchievement: taskAchievement,
+            taskDate: CookiesConfiguration.getCookie("taskDate" + i)
         });
         i++
     }

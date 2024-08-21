@@ -11,6 +11,7 @@ import CSSInput from "../../CSS/CSS-input";
 import CSSButton from "../../CSS/CSS-button";
 import CSSDiv from "../../CSS/CSS-div";
 import Cookie from "../../Cookies/Cookies";
+import DateTypeCalculation from "../../Date/DateTypeCalculation";
 
 const TaskList = () => {
     const navigate = useNavigate();
@@ -41,7 +42,13 @@ const TaskList = () => {
 
     // get method to bring all the tasks from the DB
     const getTask = () => {
-        setListAllTheTasks(Cookie.getCookie);
+        const initializationTaskList: Array<ListTask> = Cookie.getCookie();
+
+        const tableDate: DateType = DateTypeCalculation(initializationTaskList)
+
+        setDateTable(tableDate);
+        setListAllTheTasks(initializationTaskList);
+        setListTasks(ListSort.taskToShow(tableDate, initializationTaskList));
     };
 
     // set default checked or no for each tasks
@@ -59,6 +66,7 @@ const TaskList = () => {
     };
 
     const deleteTask = (task: ListTask) => {
+        // @ts-ignore
         const sortedList: Array<ListTask> = ListSort.deleteTask(listAllTheTasks, task.index, 0);
 
         // don't actually really need to update setTable because the page will be relaunched
